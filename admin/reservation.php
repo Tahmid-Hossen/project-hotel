@@ -199,7 +199,7 @@ include('db.php')
 						<p>Enter the random code<br /></p>
 							<input  type="text" name="code1" title="random code" />
 							<input type="hidden" name="code" value="<?php echo $Random_code; ?>" />
-						<input type="submit" name="submit" class="btn btn-primary">
+						    <input type="submit" name="submit" class="btn btn-primary">
 						<?php
 							if(isset($_POST['submit']))
 							{
@@ -227,12 +227,14 @@ include('db.php')
 										$newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
 										if (mysqli_query($con,$newUser))
 										{
-											echo "<script type='text/javascript'> alert('Your Booking application has been sent')</script>";
+                                            echo "<script type='text/javascript'> alert('Your Booking application has been sent')</script>";
+                                            header ("Location: tk.php");
 											
 										}
 										else
 										{
-											echo "<script type='text/javascript'> alert('Error adding user in database')</script>";
+                                            echo "<script type='text/javascript'> alert('Error adding user in database')</script>";
+                                            
 											
 										}
 									}
@@ -241,8 +243,9 @@ include('db.php')
 							}
 							}
 							?>
+
+                                
 						</form>
-							
                     </div>
                 </div>
             </div>
